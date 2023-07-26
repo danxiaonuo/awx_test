@@ -1,0 +1,13 @@
+- name: 测试模板
+  hosts: all
+  gather_facts: yes
+  connection: local
+
+  vars:
+    ansible_become: yes
+    ansible_become_method: enable
+    dir_name: /var/lib/awx/projects/{new_folder}
+
+  tasks:
+    - name: 查看目录
+      shell: ls -al {{ dir_name }}
